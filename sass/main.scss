@@ -1,0 +1,21 @@
+//@import 'mixins.scss';
+
+$screen_small:           480px;
+$screen_medium:          768px;
+$screen_normal:         1016px;
+$screen_large:          1140px;
+$screen_xlarge:         2000px;
+
+
+$color_todo_app:    lightblue;
+
+
+@import '../bower_components/normalize-css/normalize.css';
+
+
+// components
+@import 'typography';
+
+// Layout
+
+@import 'layout_core'

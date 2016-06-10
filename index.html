@@ -1,27 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="cleartype" content="on" />
+        <title>A Little Todo App</title>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/master.min.css" />
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  </body>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    </head>
+    <body>
+
+        <div class="todo-app">
+
+            <header>
+                <h2>Todo App v1.0 by Fini Alring</h2>
+            </header>
+
+            <section class="main">
+
+
+                <article class="complete">
+                    <header>
+                        <input type="checkbox" name="task_0" checked="checked" />
+                        <label for="task_0">Decide on dev stack</label>
+                    </header>
+                </article>
+
+                <article class="complete">
+                    <header>
+                        <input type="checkbox" name="task_1" checked="checked" />
+                        <label for="task_1">Create a build script</label>
+                    </header>
+                </article>
+
+                <article>
+                    <header>
+                        <input type="checkbox" name="task_2" />
+                        <label for="task_2">Create the UI</label>
+                    </header>
+                </article>
+
+                <article>
+                    <header>
+                        <input type="checkbox" name="task_3" />
+                        <label for="task_3">Create mockup data provider</label>
+                    </header>
+                </article>
+
+                <article>
+                    <header>
+                        <input type="checkbox" name="task_4" />
+                        <label for="task_4">Write the logic</label>
+                    </header>
+                </article>
+
+                <article>
+                    <header>
+                        <input type="checkbox" name="task_5" />
+                        <label for="task_5">Add animations</label>
+                    </header>
+                </article>
+            </section>
+
+            <footer>
+                <button class="action-todo-add">Add Task...</button>
+            </footer>
+
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <script src="js/libs.min.js"></script>
+        <script src="js/master.min.js"></script>
+    </body>
 </html>

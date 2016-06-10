@@ -1,0 +1,31 @@
+//@import url(http://fonts.googleapis.com/css?family=Cantarell:400,700);
+
+body {
+    font-size: 12px;
+
+    @media only screen and (min-width: $screen_medium) {
+        font-size: 16px;
+    }
+
+    @media only screen and (min-width: $screen_normal) {
+        font-size: 20px;
+    }
+
+    @media only screen and (min-width: $screen_large) {
+        font-size: 24px;
+    }
+
+    @media only screen and (min-width: $screen_xlarge) {
+        font-size: 28px;
+    }
+}
+
+* {
+    font-family: 'Arvo', 'Helvetiva', sans-serif;
+    font-weight: 400;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
