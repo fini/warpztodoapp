@@ -33,8 +33,8 @@ module.exports = function(grunt) {
                 //'<%= paths.build.bower %>/waypoints/lib/jquery.waypoints.js',
                 //'<%= paths.build.bower %>/waypoints/lib/shortcuts/sticky.js',
                 '<%= paths.build.bower %>/lodash/lodash.js',
-                '<%= paths.build.bower %>/velocity/velocity.js'
-                //'<%= paths.build.bower %>/velocity/velocity.ui.js',
+                '<%= paths.build.bower %>/velocity/velocity.js',
+                '<%= paths.build.bower %>/velocity/velocity.ui.js'
                 ////'<%= paths.build.bower %>/full-screen-vertical-scroll/js/fsvs.js'
                 //'<%= paths.build.bower %>/jquery/dist/jquery.min.js',
             ]
@@ -250,14 +250,6 @@ module.exports = function(grunt) {
     grunt.registerTask('build_css',  ['sass', 'autoprefixer:dist', 'cssmin:dist']);
     grunt.registerTask('build_html',  ['htmlhint', 'htmlmin']);
     grunt.registerTask('server',  ['connect:server:keepalive']);
-
-
-    grunt.registerTask('screenshots', [
-     //   'clean:server',
-     //   'concurrent:server',
-     //   'connect:livereload',
-        'autoshot'
-    ]);
 
     grunt.registerTask('default', ['build_js', 'build_html', 'build_css', 'copy:dist']); // , 'copy:dist'
 

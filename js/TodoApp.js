@@ -5,6 +5,13 @@
         return Date.now(); // + Math.round(Math.random()*1000000);
     }
 
+    function removeTask(id) {
+        //alert(title);
+
+        console.log('remove', id);
+        return id;
+    }
+
     var todoApp = {
 
         add: function(title) {
@@ -16,7 +23,7 @@
         },
 
         remove: function(id) {
-            console.log('remove', id);
+            removeTask(id);
         },
 
         setComplete: function(id) {
