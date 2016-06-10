@@ -101,6 +101,16 @@ module.exports = function(grunt) {
         },
     },
 
+    // grunt-contrib-copy
+    copy: {
+        dist: {
+            files: [
+                {expand: true, src: ['img/icons/**/*.{jpg,gif,png,svg,svgz}'], dest: '<%= paths.build.distFolder %>/'},
+                {expand: true, src: ['img/text/**/*.{jpg,gif,png,svg,svgz}'], dest: '<%= paths.build.distFolder %>/'}
+            ]
+        }
+    },
+
     // grunt-connect
     connect: {
         server: {
