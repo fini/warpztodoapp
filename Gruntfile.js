@@ -12,9 +12,9 @@ module.exports = function(grunt) {
     meta: {
       version: '1.0.0',
       banner: '/*!\n' +
-        ' * Ferrari Sale v<%= meta.version %>\n' +
-        ' * www.thankyoustudio.com\n\n' +
-        ' * Copyright © 2015 Thank You Studio\n' +
+        ' * Todo App v<%= meta.version %>\n' +
+        ' * www.bytefarmers.com\n\n' +
+        ' * Copyright © 2016 Bytefarmers.com\n' +
         ' * All Rights Reserved\n */'
     },
     paths: {
