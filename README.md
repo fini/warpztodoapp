@@ -9,7 +9,7 @@ A simple todo app demo by Fini Alring
 
 ## Building instructions:
 - npm install
-- Grunt
+- grunt
 
 ## Run a tiny web server:
 - grunt server
