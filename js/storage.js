@@ -1,8 +1,8 @@
 
-var app = app || {};
+var todoAppLibs = todoAppLibs || {};
 
 /* Wrapper for HTML5 sessionStorage */
-app.Storage = (function() {
+todoAppLibs.Storage = (function() {
 
     return {
 
@@ -22,3 +22,7 @@ app.Storage = (function() {
         }
     };
 })();
+
+// todoAppLibs.Storage.setItem('author', JSON.stringify({name: 'Fini Alring', age: 38}))
+// a = todoAppLibs.Storage.getItem('author')
+// b = JSON.parse(a);

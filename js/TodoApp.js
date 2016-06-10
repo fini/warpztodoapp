@@ -1,8 +1,8 @@
 (function(scope) {
 
     function addTask(title) {
-        alert(title);
-        return 666;
+        //alert(title);
+        return Date.now(); // + Math.round(Math.random()*1000000);
     }
 
     var todoApp = {
@@ -10,20 +10,21 @@
         add: function(title) {
 
             var id = addTask(title);
-            
+            console.log('add', title, id);
+
             return id;
         },
 
         remove: function(id) {
-            alert(title);
+            console.log('remove', id);
         },
 
         setComplete: function(id) {
-            alert(id);
+            console.log('setComplete:', id);
         },
 
         setIncomplete: function(id) {
-            alert(id);
+            console.log('setIncomplete:', id);
         }
     };
 
