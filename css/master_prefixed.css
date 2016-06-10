@@ -1,0 +1,73 @@
+@import url(../bower_components/normalize-css/normalize.css);
+body {
+  font-size: 12px; }
+  @media only screen and (min-width: 768px) {
+    body {
+      font-size: 16px; } }
+  @media only screen and (min-width: 1016px) {
+    body {
+      font-size: 20px; } }
+  @media only screen and (min-width: 1140px) {
+    body {
+      font-size: 24px; } }
+  @media only screen and (min-width: 2000px) {
+    body {
+      font-size: 28px; } }
+
+* {
+  font-family: 'Arvo', 'Helvetiva', sans-serif;
+  font-weight: 400; }
+
+b,
+strong {
+  font-weight: 700; }
+
+body {
+  padding: 0em 1em;
+  overflow: hidden; }
+
+.todo-app {
+  border: 3px solid #5fb3ce;
+  border-radius: .8em;
+  background: lightblue;
+  height: 99vh; }
+  .todo-app > header {
+    background: #5fb3ce;
+    color: white;
+    padding: .3em;
+    height: 10%;
+    max-height: 2em; }
+    .todo-app > header h2 {
+      margin: .0em .3em;
+      font-size: 140%; }
+  .todo-app > footer {
+    background: #5fb3ce;
+    color: black;
+    padding: .3em;
+    height: 20%;
+    max-height: 2.5em;
+    position: absolute;
+    bottom: 10px; }
+    .todo-app > footer button {
+      margin: .1em .3em;
+      font-size: 100%; }
+  .todo-app section.main {
+    height: 100%;
+    overflow: auto; }
+  .todo-app article.complete label {
+    color: #666666;
+    font-style: italic;
+    font-weight: normal;
+    text-decoration: line-through; }
+  .todo-app article header {
+    padding: 1em;
+    overflow: auto; }
+    .todo-app article header:hover {
+      background: #5fb3ce; }
+    .todo-app article header input[type=checkbox] {
+      float: left; }
+    .todo-app article header h3, .todo-app article header label {
+      margin: .0em .5em;
+      font-size: 120%;
+      font-weight: bold;
+      float: left; }
