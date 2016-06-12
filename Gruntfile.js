@@ -29,13 +29,9 @@ module.exports = function(grunt) {
         js: {
             projectFiles: ['js/**/*.js'],
             libraryFiles: [
-                //'<%= paths.build.bower %>/modernizr/modernizr.js',
-                //'<%= paths.build.bower %>/waypoints/lib/jquery.waypoints.js',
-                //'<%= paths.build.bower %>/waypoints/lib/shortcuts/sticky.js',
-                '<%= paths.build.bower %>/lodash/lodash.js',
+                //'<%= paths.build.bower %>/lodash/lodash.js',
                 '<%= paths.build.bower %>/velocity/velocity.js',
                 '<%= paths.build.bower %>/velocity/velocity.ui.js'
-                ////'<%= paths.build.bower %>/full-screen-vertical-scroll/js/fsvs.js'
                 //'<%= paths.build.bower %>/jquery/dist/jquery.min.js',
             ]
         },
@@ -54,7 +50,7 @@ module.exports = function(grunt) {
     // grunt-contrib-sass
     sass: {
         dist: {
-            otions: {
+            options: {
 
             },
             files: {
@@ -105,8 +101,9 @@ module.exports = function(grunt) {
     copy: {
         dist: {
             files: [
-                {expand: true, src: ['img/icons/**/*.{jpg,gif,png,svg,svgz}'], dest: '<%= paths.build.distFolder %>/'},
-                {expand: true, src: ['img/text/**/*.{jpg,gif,png,svg,svgz}'], dest: '<%= paths.build.distFolder %>/'}
+                //{expand: true, src: ['img/icons/**/*.{jpg,gif,png,svg,svgz}'], dest: '<%= paths.build.distFolder %>/'},
+                //{expand: true, src: ['img/text/**/*.{jpg,gif,png,svg,svgz}'], dest: '<%= paths.build.distFolder %>/'},
+                {expand: true, src: ['data/**/*.json'], dest: '<%= paths.build.distFolder %>/'}
             ]
         }
     },
