@@ -1,11 +1,11 @@
 body {
-    padding: 0em 1em;
+    padding: 0em;
     overflow: hidden;
 }
 
 .todo-app {
     border: 3px solid darken($color_todo_app, 20%);
-    border-radius: .8em;
+    //border-radius: .8em;
     background: $color_todo_app;
     height: 99vh;
 
@@ -14,28 +14,37 @@ body {
         color: white;
         padding: .3em;
         height: 10%;
-        max-height: 2em;
+        max-height: 2.7em;
 
         h2 {
             margin: .0em .3em;
             font-size: 140%;
+            float: left;
         }
     }
 
     > footer {
         background: darken($color_todo_app, 20%);
-        color: black;
         padding: .3em;
         height: 20%;
         max-height: 2.5em;
 
         position: absolute;
         bottom: 10px;
+    }
 
-        button {
-            margin: .1em .3em;
-            font-size: 100%;
-        }
+    button {
+
+        background-color: $color_todo_app;
+        border: 0;
+        border-radius: 1em;
+        color: black;
+        font-size: 102%;
+        font-weight: bold;
+        margin: .1em .3em;
+        float: right;
+        height: 2em;
+        width: 2em;
     }
 
     section.main {
@@ -79,17 +88,9 @@ body {
             }
 
             .action-todo-remove {
-                background-color: $color_todo_app;
-                border: 0;
-                border-radius: 1em;
 
                 color: red;
-                float: right;
-                font-size: 102%;
-                font-weight: bold;
                 padding: 0;
-                height: 2em;
-                width: 2em;
             }
         }
     }
