@@ -2,106 +2,105 @@ $(function() {
 
     "use strict";
 
+    var $window = $(window);
     var $appUI = $('.todo-app');
     var $actionAddTask = $appUI.find('.action-todo-add');
 
-    var $templates = $('#todo-app-templates');
 
-    var templateCache = {};
+    /* Event handlers */
 
-    function getTemplate(className) {
+    /* API events */
 
-        // employ a simple, but efficient cache
-        if(typeof templateCache[className] === "undefined") {
+    $window.on("NewTask.TodoAppUI.DataLayer", function(event, data) {
 
-            templateCache[className] = $($templates.find('.' + className + ' > *').get(0));
-        }
+        console.info('NewTask Event recieved from:', event.namespace, data.task);
 
-        return templateCache[className].clone();
-    }
+        var sanitizedData = {};
+        sanitizedData.title = data.task.title || "Untitled";
+        sanitizedData.id = data.task.id || Date.now();
+        sanitizedData.complete = data.task.complete || false;
 
-    function addTask(title) {
+        todoApp.add(sanitizedData);
+        todoUI.add(sanitizedData);
 
-        // Add the task to the model
-        var newId = todoApp.add(title);
+    });
 
-        // Get a cloned template, ready for customizing
-        var $itemEl = getTemplate('item-task');
-
-
-        // Set a few properties on it's elements
-        $itemEl.find('input[type=checkbox]')
-                .attr({'id': newId, 'name': newId});
-
-        $itemEl.find('label')
-                .text(title)
-                .attr({'for': newId});
-
-        $('.main').append($itemEl);
-
-        $itemEl.velocity("transition.bounceLeftIn", { delay: 150, stagger: 30 });
-
-        console.log('$itemEl:', $itemEl);
-        console.log('Added id:', newId);
-    }
-
-    function updateTaskState($itemEl) {
-
-        var $checkbox = $itemEl.find('input[type=checkbox]:first');
-        var id = $checkbox.attr('id');
-        var complete = $checkbox.is(':checked');
-
-
-        // Set a few properties on it's elements
-        if (complete) {
-            todoApp.setComplete(id);
-            $itemEl.addClass('complete');
-        } else {
-            todoApp.setIncomplete(id);
-            $itemEl.removeClass('complete');
-        }
-    }
-
-    function removeTask($itemEl) {
-
-        var id = $itemEl.find('.action-todo-remove').data('id');
-
-        todoApp.remove(id);
-
-        $itemEl.velocity("transition.bounceRightOut", { delay: 150, complete: function() {
-            $itemEl.remove();
-        } });
-
-    }
+    /* UI events */
 
     $actionAddTask.on('click', function() {
 
         event.preventDefault();
         var title = prompt("Title", "Untitled Task " + Math.round(Math.random()*1000000));
-        addTask(title);
-        //$('.todo-app article').map(function() {
-        //    var $taskEl = $(this); return {id: $taskEl.find('label').attr('for'), title: $taskEl.find('label').text()}
-        //});
+        $window.trigger("NewTask.TodoAppUI", {task: {title: title}});
     });
+
 
     $appUI.on('click', 'button.action-todo-remove', function() {
 
         event.preventDefault();
         var $itemEl = $(this).closest('article');
-        removeTask( $itemEl );
+        var id = $itemEl.attr('id');
+
+        todoApp.remove(id);
+        todoUI.remove($itemEl);
     });
+
 
     $appUI.on('change', 'input[type=checkbox]', function() {
 
         event.preventDefault();
-        var $itemEl = $(this).closest('article');
-        updateTaskState($itemEl);
+        var $itemEl = $(this).closest('article'); // fast and easy way to get the container element of the item.
+
+        var $checkbox = $itemEl.find('input[type=checkbox]:first');
+        var id = $itemEl.attr('id');
+        var complete = $checkbox.is(':checked');
+
+        if (complete) {
+            todoApp.setComplete(id);
+        } else {
+            todoApp.setIncomplete(id);
+        }
+
+        todoUI.updateState($itemEl);
     });
 
-    function init() {
-        $appUI.find('article').velocity("transition.bounceRightIn", { delay: 300, stagger: 30 });
+
+    function handleIncommingTasks(data) {
+        var i;
+
+        if (data.todo_tasks.length > 0) {
+
+            for (i = 0; i < data.todo_tasks.length; i++) {
+
+                $window.trigger("NewTask.TodoAppUI", {task: data.todo_tasks[i]});
+            }
+        }
     }
 
-    init();
 
+    function init() {
+
+        var localTodoDataString = todoAppLibs.Storage.getItem('todo_data');
+
+        if (localTodoDataString === null) {
+
+            console.info('Fetching (default) todo json data via XHR.');
+
+            var dataPromise = todoAppLibs.DataLayer.getTodoData();
+
+            dataPromise.done(function(data) {
+                // todo data is available.
+                handleIncommingTasks(data);
+            });
+        } else {
+
+            console.info('Loading todo json data from localStorage.');
+
+            var todoDataObj = JSON.parse(localTodoDataString);
+            handleIncommingTasks(todoDataObj);
+        }
+
+    }
+
+    init(); // Start the show ;)
 });

@@ -1,42 +1,71 @@
 (function(scope) {
 
-    function addTask(title) {
-        //alert(title);
-        return Date.now(); // + Math.round(Math.random()*1000000);
+    "use strict";
+
+    var tasks = {};
+
+    function addTask(taskData) {
+
+        var id = taskData.id || Date.now(); // + Math.round(Math.random()*1000000);
+
+        tasks[taskData.id] = (taskData);
+        todoAppLibs.DataLayer.updateLocalData();
+
+        return id;
     }
 
     function removeTask(id) {
-        //alert(title);
 
         console.log('remove', id);
+
+        delete tasks[id];
+        todoAppLibs.DataLayer.updateLocalData();
+
         return id;
     }
 
     var todoApp = {
 
-        add: function(title) {
+        add: addTask,
 
-            var id = addTask(title);
-            console.log('add', title, id);
-
-            return id;
-        },
-
-        remove: function(id) {
-            removeTask(id);
-        },
+        remove: removeTask,
 
         setComplete: function(id) {
-            console.log('setComplete:', id);
+
+            if (tasks[id]) {
+                console.info('setComplete:', id);
+                tasks[id].complete = true;
+                todoAppLibs.DataLayer.updateLocalData();
+            }
         },
 
         setIncomplete: function(id) {
-            console.log('setIncomplete:', id);
+
+            if (tasks[id]) {
+                console.info('setIncomplete:', id);
+                tasks[id].complete = false;
+                todoAppLibs.DataLayer.updateLocalData();
+            }
+        },
+
+        getAllTasks: function() {
+            return tasks;
+        },
+
+        getAllTasksArray: function() {
+
+            var tasksList = [];
+
+            for (var key in tasks) {
+                if (tasks.hasOwnProperty(key)) {
+                    tasksList.push(tasks[key]);
+                }
+            }
+
+            return tasksList;
         }
     };
 
     scope.todoApp = todoApp;
-
-    console.log('scope', scope);
 
 })(window);
