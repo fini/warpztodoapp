@@ -1,6 +1,9 @@
 # warpztodoapp
 A simple todo app demo by Fini Alring
 
+Live production version can be seen on the following link:
+- https://dl.dropboxusercontent.com/u/9276567/test/todo/index.html
+
 # Build process
 
 ## Required Tools:
@@ -21,3 +24,6 @@ A simple todo app demo by Fini Alring
 - SASS powered CSS.
 - HTML5 and XHTML compliant.
 - Velocity animation engine.
+
+# JS Console
+- Clear local data set: localStorage.clear()
