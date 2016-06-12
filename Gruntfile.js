@@ -103,6 +103,7 @@ module.exports = function(grunt) {
             files: [
                 //{expand: true, src: ['img/icons/**/*.{jpg,gif,png,svg,svgz}'], dest: '<%= paths.build.distFolder %>/'},
                 //{expand: true, src: ['img/text/**/*.{jpg,gif,png,svg,svgz}'], dest: '<%= paths.build.distFolder %>/'},
+                {expand: true, src: ['README.md'], dest: '<%= paths.build.distFolder %>/'},
                 {expand: true, src: ['data/**/*.json'], dest: '<%= paths.build.distFolder %>/'}
             ]
         }
