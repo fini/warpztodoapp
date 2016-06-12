@@ -15,7 +15,7 @@ body {
       font-size: 28px; } }
 
 * {
-  font-family: 'Arvo', 'Helvetiva', sans-serif;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   font-weight: 400; }
 
 b,
@@ -23,12 +23,11 @@ strong {
   font-weight: 700; }
 
 body {
-  padding: 0em 1em;
+  padding: 0em;
   overflow: hidden; }
 
 .todo-app {
   border: 3px solid #5fb3ce;
-  border-radius: .8em;
   background: lightblue;
   height: 99vh; }
   .todo-app > header {
@@ -36,21 +35,29 @@ body {
     color: white;
     padding: .3em;
     height: 10%;
-    max-height: 2em; }
+    max-height: 2.7em; }
     .todo-app > header h2 {
       margin: .0em .3em;
-      font-size: 140%; }
+      font-size: 140%;
+      float: left; }
   .todo-app > footer {
     background: #5fb3ce;
-    color: black;
     padding: .3em;
     height: 20%;
     max-height: 2.5em;
     position: absolute;
     bottom: 10px; }
-    .todo-app > footer button {
-      margin: .1em .3em;
-      font-size: 100%; }
+  .todo-app button {
+    background-color: lightblue;
+    border: 0;
+    border-radius: 1em;
+    color: black;
+    font-size: 102%;
+    font-weight: bold;
+    margin: .1em .3em;
+    float: right;
+    height: 2em;
+    width: 2em; }
   .todo-app section.main {
     height: 90vh;
     overflow: auto; }
@@ -74,13 +81,5 @@ body {
         font-weight: bold;
         float: left; }
       .todo-app article header .action-todo-remove {
-        background-color: lightblue;
-        border: 0;
-        border-radius: 1em;
         color: red;
-        float: right;
-        font-size: 102%;
-        font-weight: bold;
-        padding: 0;
-        height: 2em;
-        width: 2em; }
+        padding: 0; }
